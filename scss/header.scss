@@ -1,0 +1,174 @@
+header {
+	background-color: $darkGrey;
+}
+
+.top_header {
+	@include clearfix;
+	background-color: black;
+	height: auto;
+	margin: 0 auto;
+	padding: 0px;
+	
+	/* Top parts of the header */
+	.top_left {
+		float: left;
+		img { width: 30px; float: left; margin: 10px 5px 5px;}
+		h2 {float: left; margin: 10px 5px 5px;}
+	}
+	.top_right {
+		float: right;
+		margin: 10px 10px 5px;
+
+		div {
+			float: left;
+			padding: 0px 10px;
+			a { 
+				text-decoration: none;
+				color: $lightGrey;
+			}
+			a:hover { 
+				color: $blue;
+			}
+		}
+		@media (min-width: $small-width){
+		 	display: none;		 		
+		}	
+		@media (min-width: $medium-width){
+			 display: none;		 		
+		}
+		@media (min-width: $large-width){
+			  display: block;	 		
+		}
+		@media (min-width: $xlarge-width){
+			 	display: block;	  		
+		}
+	}
+
+	
+}
+
+/* bottom parts of the header */
+	.bot_header {
+		@include clearfix;
+		padding: 0px 0px 35px;
+		.wrapper{
+
+			img{ float: left;
+				width: 60px;
+				@media (min-width: $small-width){
+					width: 60px;		 		
+				}	
+				@media (min-width: $medium-width){
+					width: 70px;		 		
+				}
+				@media (min-width: $large-width){
+					width: 80px;	  		
+				}
+				@media (min-width: $xlarge-width){
+					width: 100px;	  		
+				}
+			 }
+			h1{ float: left;
+				@media (min-width: $small-width){
+					@include font-size(18);	 		
+				}	
+				@media (min-width: $medium-width){
+					@include font-size(22);	 		
+				}
+				@media (min-width: $large-width){
+					@include font-size(25);  		
+				}
+				@media (min-width: $xlarge-width){
+					 @include font-size(28);	  		
+				}
+			 }
+		}		
+	}
+
+/* Navigation Bar */
+nav {
+	.wrapper {background-color: $black ; margin-top: -50px;}
+	ul {
+		float: left;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li {
+			float: left;
+			margin: 15px 0px;
+			background-color: $black;
+			border-top: 10px solid $black;
+				border-bottom: 10px solid $black;
+			&:first-child{ margin: 15px 0px 15px 0px; }
+			&:last-child{ margin: 15px 0px 15px 0px; }	
+			a { 
+
+				text-decoration: none;
+				color: $lightGrey;
+				font-family: $headerFont;
+				@include font-size(14);
+				padding: 12px 25px 12px; 
+				&:first-child{ padding: 12px 25px 12px 25px; }
+				&:last-child{ padding: 12px 25px 12px 25px; }
+				border-top: 10px solid $black;
+				border-bottom: 10px solid $black;
+			}
+			a:hover { 
+				text-decoration: none;
+				color: $blue;
+				border-top: 10px solid $blue;
+				border-bottom: 10px solid $blue;
+
+			}
+		}
+	}
+}
+
+/*
+nav {
+	margin: -45px 0 0;
+
+	.wrapper {background-color: $black ;}
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li {
+			float: left;
+			margin: 20px 10px;
+			&:first-child{ margin: 20px 10px 20px 0px; }
+			&:last-child{ margin: 20px 0px 20px 10px; }	
+			a { 
+				text-decoration: none;
+				color: $lightGrey;
+				font-family: $headerFont;
+				@include font-size(10);
+				padding: 20px 10px;
+				&:first-child{ padding: 20px 10px 20px 0px; }
+				&:last-child{ padding: 20px 0px 20px 10px; }
+				border-top: 10px solid $black;
+				border-bottom: 10px solid $black;
+			}
+			a:hover { 
+				text-decoration: none;
+				color: $blue;
+				border-top: 10px solid $blue;
+				border-bottom: 10px solid $blue;
+
+			}
+		}
+
+	}
+}
+
+*/
+
+/* the page is the store page.. */
+.main_nav > li:nth-child(3) > a:nth-child(1) {
+				color: $blue;
+				border-top: 10px solid $blue;
+				border-bottom: 10px solid $blue;
+}
