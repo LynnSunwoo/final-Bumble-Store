@@ -1,6 +1,9 @@
 window.onload = rawl;
 
-
+//global variables
+var overBtn = false;
+var pos = 0;
+var image;
  
 
 function rawl() {
@@ -9,7 +12,7 @@ function rawl() {
    var http_request = new XMLHttpRequest();
 
    var clicker;
-   
+   doPager();
 
    try{
       // Opera 8.0+, Firefox, Chrome, Safari
@@ -36,9 +39,9 @@ function rawl() {
         var jsonObj = JSON.parse(http_request.responseText);
 
         
-        for (var key in jsonObj){
+        for (var key=0; key < 9; key++){
 		
-			console.log(jsonObj[key]);
+			//console.log(jsonObj[key]);
 
 			//banner captions 
 
@@ -76,6 +79,104 @@ function rawl() {
 			maindiv.appendChild(newdiv);
 
 		}		
+		
+		// for the list
+		for (var key=9; key < 14; key++){
+			var attatchHere = document.getElementById("bestSelling");
+			
+			// creating div for each articles
+			var newdiv = document.createElement('div');
+			newdiv.classList.add("listers");
+			
+			// article img
+			var listImg = document.createElement('img');
+			listImg.setAttribute('src',jsonObj[key].imageUrl);
+			var title = document.createElement("h2");
+			title.innerHTML = jsonObj[key].title;	
+			
+			// div that opens
+			var openDiv = document.createElement('div'); 
+			openDiv.classList.add("list_open");
+			
+			// video
+			var videoSec =  document.createElement('section'); 
+			videoSec.classList.add("video-container");
+			
+			var iframe = document.createElement('iframe');
+			iframe.setAttribute("src",jsonObj[key].video);
+			videoSec.appendChild(iframe);
+			
+			// text desc
+			var texSec = document.createElement('section'); 
+			texSec.classList.add("descprtionText");
+			//the text
+			var descText = document.createElement('p'); 
+			descText.innerHTML =jsonObj[key].disc;
+			texSec.appendChild(descText);
+			
+			// append title and img to lister div
+			newdiv.appendChild(listImg);
+			newdiv.appendChild(title);
+			
+			//append video and text to list-open div			
+			openDiv.appendChild(videoSec);
+			openDiv.appendChild(texSec);
+			
+			newdiv.appendChild(openDiv);
+			
+			
+			attatchHere.appendChild(newdiv);	
+			
+	}
+		for (var key=14; key < 18; key++){
+			var attatchHere = document.getElementById("newest");
+			
+			// creating div for each articles
+			var newdiv = document.createElement('div');
+			newdiv.classList.add("listers");
+			
+			// article img
+			var listImg = document.createElement('img');
+			listImg.setAttribute('src',jsonObj[key].imageUrl);
+			var title = document.createElement("h2");
+			title.innerHTML = jsonObj[key].title;	
+			
+			// div that opens
+			var openDiv = document.createElement('div'); 
+			openDiv.classList.add("list_open");
+			
+			// video
+			var videoSec =  document.createElement('section'); 
+			videoSec.classList.add("video-container");
+			
+			var iframe = document.createElement('iframe');
+			iframe.setAttribute("src",jsonObj[key].video);
+			videoSec.appendChild(iframe);
+			
+			// text desc
+			var texSec = document.createElement('section'); 
+			texSec.classList.add("descprtionText");
+			//the text
+			var descText = document.createElement('p'); 
+			descText.innerHTML =jsonObj[key].disc;
+			texSec.appendChild(descText);
+			
+			// append title and img to lister div
+			newdiv.appendChild(listImg);
+			newdiv.appendChild(title);
+			
+			//append video and text to list-open div			
+			openDiv.appendChild(videoSec);
+			openDiv.appendChild(texSec);
+			
+			newdiv.appendChild(openDiv);
+			
+			
+			attatchHere.appendChild(newdiv);	
+			
+	}
+	
+		
 		
       }
 
@@ -137,12 +238,40 @@ function rawl() {
 	$( ".open_what" ).slideToggle( "slow" );
 	});
 
-	$( ".listers" ).click(function() {
-	$( this ).find("div").slideToggle( "slow" );
-	});
-
 	
+	$( document ).on( "click", ".listers", function() {
+				$( this ).find("div").slideToggle( "slow" );
+			});
+
+	// page - reloading
+	// Get links from paginated a tags
+		// onclick get href value and pass it to the jquery load function
+		function doPager() {
+		 $('.pager a').click(function(e) {
+		  e.preventDefault();
+		  loadProducts($(this).attr('href'));
+		  //alert("DF");
+		  $('.pager a').removeAttr('id');
+		  $(this).attr('id', 'clickedOn');
+		
+		  
+		 });
+		};
+		
+		// empty elements from #inner div, add loading class, load in elements from link #inner div, remove loading class when complete.
+		function loadProducts(url) {
+		 $('#inner').empty().addClass('loading').load(url + ' #inner', function() {
+		 $('#inner').removeClass();
+		
+		 });
+};
+ 
 
 
 };
 
+function makeLists(jsonObjectPassed){
+
+	
+	
+};

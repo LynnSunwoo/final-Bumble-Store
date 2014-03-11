@@ -492,19 +492,20 @@ div.imageWrapper:nth-child(9) {   margin-right: 0;  margin-top: 3%; margin-botto
 
 
 	/* lists */
-
+ 
 	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		width: 100%;
-
+ 
 		li {
 			position: relative;
 			width: 100%;
 			text-align: center;
 			
-			a {
+			a { 
+			text-decoration: none;
 				display: block;
 				position: relative;
 				max-width: 100%;
@@ -515,8 +516,8 @@ div.imageWrapper:nth-child(9) {   margin-right: 0;  margin-top: 3%; margin-botto
 				padding: 10px 0px;
 				/*border: 1px solid $blue;*/
 				color: $lightGrey;
-
-				
+			background-color: $black;
+			 	
 
 			}
 			
@@ -525,7 +526,7 @@ div.imageWrapper:nth-child(9) {   margin-right: 0;  margin-top: 3%; margin-botto
 	}
 }
 
-#clicked {background-color: $blue; color: $black; font-weight: bold;}
+#clickedOn { background-color: $blue; color: $black; font-weight: bold;}
  
 
 /* When click on article it opens the information box*/ 
