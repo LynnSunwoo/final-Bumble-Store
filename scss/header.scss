@@ -87,88 +87,76 @@ header {
 
 /* Navigation Bar */
 nav {
-	.wrapper {background-color: $black ; margin-top: -50px;}
-	ul {
-		float: left;
+	.wrapper { background-color: $black ; margin-top: -50px;margin-bottom:20px;}
+	.main_nav {
+		 
 		padding: 0;
-		margin: 0;
-		list-style: none;
-
-		li {
+		
+		@include clearfix; 
+		div {
+			width: 25%;
 			float: left;
-			margin: 15px 0px;
+			margin:  0px;
 			background-color: $black;
+			/*border: 1px solid red;*/
+			text-align: center;
+			color: $lightGrey;
+			
 			border-top: 10px solid $black;
 				border-bottom: 10px solid $black;
-			&:first-child{ margin: 15px 0px 15px 0px; }
-			&:last-child{ margin: 15px 0px 15px 0px; }	
+			height: 60px;
+			line-height: 55px;
+			@include font-size(13);
+			@media (min-width: $small-width){
+				@include font-size(10);	
+				width: 100%;	 		
+			}	
+			@media (min-width: $medium-width){
+				@include font-size(10);	 
+				width: 50%;		
+			}
+			@media (min-width: $large-width){
+				@include font-size(11); 
+				width: 25%; 		
+			}
+			@media (min-width: $xlarge-width){
+				@include font-size(13);	  		
+			}
+			
+			
 			a { 
 
 				text-decoration: none;
-				color: $lightGrey;
+				
 				font-family: $headerFont;
-				@include font-size(14);
-				padding: 12px 25px 12px; 
-				&:first-child{ padding: 12px 25px 12px 25px; }
-				&:last-child{ padding: 12px 25px 12px 25px; }
-				border-top: 10px solid $black;
-				border-bottom: 10px solid $black;
+				
+				color: $lightGrey;
+				 
+				
 			}
 			a:hover { 
 				text-decoration: none;
 				color: $blue;
-				border-top: 10px solid $blue;
-				border-bottom: 10px solid $blue;
+				 
 
 			}
-		}
-	}
-}
-
-/*
-nav {
-	margin: -45px 0 0;
-
-	.wrapper {background-color: $black ;}
-
-	ul {
-		padding: 0;
-		margin: 0;
-		list-style: none;
-
-		li {
-			float: left;
-			margin: 20px 10px;
-			&:first-child{ margin: 20px 10px 20px 0px; }
-			&:last-child{ margin: 20px 0px 20px 10px; }	
-			a { 
-				text-decoration: none;
+			a:after {
 				color: $lightGrey;
-				font-family: $headerFont;
-				@include font-size(10);
-				padding: 20px 10px;
-				&:first-child{ padding: 20px 10px 20px 0px; }
-				&:last-child{ padding: 20px 0px 20px 10px; }
-				border-top: 10px solid $black;
-				border-bottom: 10px solid $black;
 			}
-			a:hover { 
-				text-decoration: none;
-				color: $blue;
-				border-top: 10px solid $blue;
-				border-bottom: 10px solid $blue;
-
-			}
+			
 		}
-
+		div:hover{
+			border-top: 10px solid $blue;
+			border-bottom: 10px solid $blue;
+			}
 	}
 }
 
-*/
 
 /* the page is the store page.. */
-.main_nav > li:nth-child(3) > a:nth-child(1) {
-				color: $blue;
+.main_nav > div:nth-child(3) {
+				
 				border-top: 10px solid $blue;
 				border-bottom: 10px solid $blue;
+				a { color: $blue;}
 }
