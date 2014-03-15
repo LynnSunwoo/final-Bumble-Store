@@ -37,9 +37,10 @@ function rawl() {
       if (http_request.readyState == 4  ){
         // Javascript function JSON.parse to parse JSON data
         var jsonObj = JSON.parse(http_request.responseText);
-
-        
-        for (var key=0; key < 9; key++){
+        console.log(jsonObj[key]);
+       
+        	// the banners on the top
+        	for (var key=0; key < 9; key++){
 		
 			//console.log(jsonObj[key]);
 
@@ -80,8 +81,8 @@ function rawl() {
 
 		}		
 		
-		// for the list
-		for (var key=9; key < 14; key++){
+		// for the list - when page loads first
+			for (var key=9; key < 14; key++){
 			var attatchHere = document.getElementById("bestSelling");
 			
 			// creating div for each articles
@@ -122,12 +123,11 @@ function rawl() {
 			openDiv.appendChild(videoSec);
 			openDiv.appendChild(texSec);
 			
-			newdiv.appendChild(openDiv);
+			newdiv.appendChild(openDiv);			
 			
-			
-			attatchHere.appendChild(newdiv);	
-			
-	}
+			attatchHere.appendChild(newdiv);		
+		}
+
 		for (var key=14; key < 18; key++){
 			var attatchHere = document.getElementById("newest");
 			
@@ -176,10 +176,9 @@ function rawl() {
 			
 	}
 	
-		
+		 
 		
       }
-
 
    }
 
@@ -189,7 +188,7 @@ function rawl() {
    http_request.send();
 
 		//Creating overlay   
-			$( document ).on( "click", ".imageWrapper", function() {
+		 $( document ).on( "click", ".imageWrapper", function() {
   			//alert( "Goodbye!" );
   			var overlayDiv = document.createElement('div');
 			overlayDiv.classList.add("overlay");	
@@ -201,17 +200,28 @@ function rawl() {
 			lightboxDiv.classList.add("lightbox");
 			document.querySelector("body").appendChild(lightboxDiv);
 
-			 
+			// making video
+			/*
+			var videoCon = document.createElement('div');
+			videoCon.classList.add("video-container");	
+			
+			//var video
+			var bdo -document.createElement("iframe");
+			bdo.setAttribute("src","//www.youtube.com/embed/-yw-d5woEhw");
+
+
+			videoCon.appendChild(bdo);
+			lightboxDiv.appendChild(videoCon);
+			*/		 
 
   			
 			var closeBtn = document.createElement('img');
 			closeBtn.classList.add("closer");
 			closeBtn.setAttribute('src',"images/icons/close.png");
-			document.querySelector(".lightbox").appendChild(closeBtn);
-			document.querySelector(".lightbox").appendChild(texter);
+			document.querySelector(".lightbox").appendChild(closeBtn); 
 				
   		 
-	});
+	}); 
 
 			//close overlay - close btn
 			$( document ).on( "click", ".closer", function() {
@@ -246,7 +256,7 @@ function rawl() {
 	// page - reloading
 	// Get links from paginated a tags
 		// onclick get href value and pass it to the jquery load function
-		function doPager() {
+		function doPager() { 
 		 $('.pager a').click(function(e) {
 		  e.preventDefault();
 		  loadProducts($(this).attr('href'));
@@ -260,7 +270,9 @@ function rawl() {
 		
 		// empty elements from #inner div, add loading class, load in elements from link #inner div, remove loading class when complete.
 		function loadProducts(url) {
+
 		 $('#inner').empty().addClass('loading').load(url + ' #inner', function() {
+
 		 $('#inner').removeClass();
 		
 		 });
@@ -269,9 +281,4 @@ function rawl() {
 
 
 };
-
-function makeLists(jsonObjectPassed){
-
-	
-	
-};
+ 
